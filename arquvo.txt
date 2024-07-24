@@ -1,0 +1,25 @@
+Troca as funçoes de procurar o elemento por busca binaria em conjunto do algortimo de ordenamento
+
+usar o algoritimo de ordenamento na matriz e fazer outro para ordenar  mas pegando os indices da matriz 
+
+
+
+def busca_binaria_matriz(matriz, item):
+    linhas = len(matriz)
+    colunas = len(matriz[0])
+    
+    baixo = 0
+    alto = linhas * colunas - 1
+    
+    while baixo <= alto:
+        meio = (baixo + alto) // 2
+        meio_valor = matriz[meio // colunas][meio % colunas]
+        
+        if meio_valor == item:
+            return (meio // colunas, meio % colunas)
+        elif meio_valor < item:
+            baixo = meio + 1
+        else:
+            alto = meio - 1
+    
+    return None
